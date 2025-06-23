@@ -17,4 +17,17 @@ export default defineConfig([
     languageOptions: { globals: globals.browser },
   },
   tseslint.configs.recommended,
+  {
+    // Добавляем кастомные правила
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn", // или "error"
+        {
+          argsIgnorePattern: "^_", // игнорировать аргументы, начинающиеся с _
+          varsIgnorePattern: "^_", // игнорировать переменные, начинающиеся с _
+          caughtErrorsIgnorePattern: "^_", // игнорировать ошибки в catch, начинающиеся с _
+        },
+      ],
+    },
+  },
 ])
